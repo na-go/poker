@@ -143,33 +143,33 @@ def judgment_of_the_role(hand):
       return role
 
 # 役を出力する
-def role2name(role):
+def role2name(role,name):
       """
             role : int
       """
       if role == 0:
-            print("high cards...")
+            print(name,"high cards...")
       elif role == 1:
-            print("one pair!")
+            print(name,"one pair!")
       elif role == 2:
-            print("two pair!")
+            print(name,"two pair!")
       elif role == 3:
-            print("three of a kind!")
+            print(name,"three of a kind!")
       elif role == 4:
-            print("straight!!")
+            print(name,"straight!!")
       elif role == 5:
-            print("flush!!")
+            print(name,"flush!!")
       elif role == 6:
-            print("a full house!!!")
+            print(name,"a full house!!!")
       elif role == 7:
-            print("four of a kind!!!!")
+            print(name,"four of a kind!!!!")
       
       elif role == 8:
-            print("straight flush!!!!")
+            print(name,"straight flush!!!!")
       elif role == 9:
-            print("Royal straight flush!!!!!")
+            print(name,"Royal straight flush!!!!!")
       else :
-            print("five of a kind!!!!!")
+            print(name,"five of a kind!!!!!")
 
 def card1to14(hand):
       for num in hand:
@@ -179,6 +179,7 @@ def card1to14(hand):
       return hand
 
 def judgment_game(player_role,enemy_role,player_card,enemy_card):
+      print("Result...")
       player_card[0] = card1to14(player_card[0])
       enemy_card[0] = card1to14(enemy_card[0])
       if player_role > enemy_role:
@@ -228,10 +229,10 @@ if __name__ == "__main__":
       enemy_card = hand_making(enemy_card)
       enemy_role = judgment_of_the_role(enemy_card)
 
-      print(my_card)
-      print(enemy_card)
-      role2name(my_role)
-      role2name(enemy_role)
+      print("Player's hands :",my_card)
+      print("Enemy's hands :",enemy_card)
+      role2name(my_role, "Player's role is")
+      role2name(enemy_role, "Enemy's role is")
 
       judgment_game(my_role,enemy_role,my_card,enemy_card)
 
